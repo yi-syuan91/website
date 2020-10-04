@@ -1,0 +1,210 @@
+@import url(normalize.css);
+
+body {
+	color: #fff;
+	background-image: linear-gradient(to right, rgb(33 33 33),  rgba(255, 255, 255, 0)), url(../images/background.jpg);
+	background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+
+a {
+	color: #fff;
+}
+
+.loader_mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: #1a1a1a;
+}
+
+.loader {
+	position: fixed;
+	top: 45vh;
+ 	left: 45vw;
+ 	/*transform: translate(-50%, -50%);*/
+	/*border: 16px solid #f3f3f3;
+	border-radius: 50%;
+	border-top: 16px solid #3498db;*/
+	background: url(../images/logo.png);
+	background-size: contain;
+	width: 120px;
+	height: 120px;
+	/*-webkit-animation: spin 2s linear infinite;
+	animation: spin 2s linear infinite;*/
+	-webkit-animation-name: spinner;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 3s;
+
+    animation-name: spinner;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* WebKit and Opera browsers */
+@-webkit-keyframes spinner {
+	from { -webkit-transform: rotateY(0deg);    }
+	to   { -webkit-transform: rotateY(-360deg); }
+}
+
+/* all other browsers */
+@keyframes spinner {
+	from {
+	  -moz-transform: rotateY(0deg);
+	  -ms-transform: rotateY(0deg);
+	  transform: rotateY(0deg);
+	}
+	to {
+	  -moz-transform: rotateY(-360deg);
+	  -ms-transform: rotateY(-360deg);
+	  transform: rotateY(-360deg);
+	}
+}
+
+.header {
+	/*position: fixed;*/
+	/*top: 0;*/
+	/*left: 0;*/
+}
+
+.menu {
+	text-align: center;
+}
+
+.menu span {
+	display: inline-block;
+	padding: 2vh 5vw;
+	border-top: 3px solid transparent;
+	border-bottom: 3px solid transparent;
+	transition: all .3s;
+}
+
+.menu span:hover {
+	background: rgba(255, 255, 255, .2);
+	border-bottom: 3px solid #fff;
+	text-shadow: 1px 1px 5px #ccc;
+}
+
+.menu span.active {
+	border-bottom: 3px solid #fff;
+}
+
+.main {
+	width: 70vw;
+	margin: 0 auto;
+	background: #111;
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.75);
+}
+
+.banner h1 {
+	width: 100%;
+	margin: 0;
+	padding: 15vh 0;
+	background: #555;
+	text-align: center;
+}
+
+.content h1, .content p {
+	background: #fff;
+	color: #1a1a1a;
+	margin: 0;
+	padding: 4vh;
+}
+
+.works {
+	/*display: flex;*/
+	/*justify-content: space-around;*/
+	width: 90%;
+	margin: 1vh auto;
+}
+
+.works_img {
+	display: inline-block;
+	width: 33%;
+	height: 200px;
+	background: #777;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.works_img:hover {
+	opacity: .5;
+	transition: all .3s;
+}
+
+
+.works a:nth-child(1) .works_img {
+	background-image: url(../images/work01.jpg);
+}
+
+.works a:nth-child(2) .works_img {
+	background-image: url(../images/work02.jpg);
+}
+
+.works a:nth-child(3) .works_img {
+	background-image: url(../images/work03.jpg);
+}
+
+.works a:nth-child(4) .works_img {
+	background-image: url(../images/work06.jpg);
+}
+
+.footer {
+	text-align: center;
+	margin: 4vh 0 7vh;
+}
+
+.totop {
+	position: fixed;
+	bottom: -4vh;
+	left: 50%;
+ 	transform: translateX(-50%);
+ 	padding: 1vh;
+	background: #555;
+	border-top: 3px solid #fff;
+	transition: all .3s;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 1280px) {
+
+	.works_img {
+		width: 50%;
+		height: 200px;
+	}
+
+}
+
+@media screen and (max-width: 736px) {
+
+	.works_img {
+		width: 90%;
+		height: 200px;
+	}
+
+}
