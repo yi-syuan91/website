@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-<html>
+<html lang="zh-TW">
 	<head>
 		<title>My Portfolio</title>
 		<meta charset="utf-8">
@@ -15,11 +15,21 @@
 	<body>
 		<!-- header -->
 		<header class="header">
-			<div class="logo"><a href="#"></a></div>
+			<!-- <div class="logo"><a href="#"></a></div> -->
 			<div class="menu">
-				<a href="#link_about"><span class="active">About</span></a>
-				<a href="#link_works"><span>Works</span></a>
-				<a href="#link_contact"><span>Contact</span></a>
+				<a class="to_about" href="#"><span>About</span></a>
+				<a class="to_works" href="#"><span>Works</span></a>
+				<a class="to_contact" href="#"><span>Contact</span></a>
+			</div>
+		</header>
+
+		<!-- header_fixed -->
+		<header class="header_fixed">
+			<!-- <div class="logo"><a href="#"></a></div> -->
+			<div class="menu">
+				<a class="to_about" href="#"><span>About</span></a>
+				<a class="to_works" href="#"><span>Works</span></a>
+				<a class="to_contact" href="#"><span>Contact</span></a>
 			</div>
 		</header>
 
@@ -29,28 +39,51 @@
 
 			<div id="link_about" class="content">
 				<h1>About me</h1>
-				<p>Curabitur eget semper ante. Morbi eleifend ultricies est, a blandit diam vehicula vel. Vestibulum porttitor nisi quis viverra hendrerit. Suspendisse vel volutpat nibh, vel elementum lacus. Maecenas commodo pulvinar dui, at cursus metus imperdiet vel. Vestibulum et efficitur urna. Duis velit nulla, interdum sed felis sit amet, facilisis auctor nunc. Cras luctus urna at risus feugiat scelerisque nec sed diam.</p>
+				<p>
+					<span class="title">邱薏璇</span> 85/01/08<br>
+					<span class="title">個人特質</span> 沉穩 | 內斂 | 隨和<br>
+					<span class="title">專業技能</span> 網頁設計與切版 | RWD | 平面設計<br>
+					<span class="title">使用工具</span> Photoshop | Illustrator | HTML5 | CSS | jQuery<br><br>
+					<span class="title">學歷與經歷</span><br>
+					107年 國立臺中科技大學 資訊應用專班畢業<br>
+					<span class="detail">擔任畢業專題小組副組長 獲資訊管理系系友獎</span><br><br>
+					107年 添翼控股有限公司 網頁設計人員<br>
+					<span class="detail">負責前端網頁設計與切版</span><br><br>
+					109年 添翼控股有限公司 設計部門主管<br>
+					<span class="detail">負責專案管理與跨部門溝通</span><br>
+				</p>
 			</div>
 
 			<div id="link_works" class="works">
-				<a href="images/work01.jpg" class="swipebox" title="My Caption">
+				<a href="images/work01.jpg" class="swipebox" title="平面設計">
 					<div class="works_img"></div>
 				</a>
-				<a href="images/work02.jpg" class="swipebox" title="My Caption">
+				<a href="images/work02.jpg" class="swipebox" title="平面設計">
 					<div class="works_img"></div>
 				</a>
-				<a href="images/work03.jpg" class="swipebox" title="My Caption">
+				<a href="images/work03.jpg" class="swipebox" title="平面設計">
 					<div class="works_img"></div>
 				</a>
-				<a href="images/work06.jpg" class="swipebox" title="My Caption">
+
+				<a href="images/work04.jpg" class="swipebox" title="平面設計">
 					<div class="works_img"></div>
 				</a>
-				<div class="works_img"></div>
-				<div class="works_img"></div>
+				<a href="images/work05.jpg" class="swipebox" title="平面設計">
+					<div class="works_img"></div>
+				</a>
+				<a href="images/work06.jpg" class="swipebox" title="平面設計">
+					<div class="works_img"></div>
+				</a>
 
 				<div class="works_img"></div>
 				<div class="works_img"></div>
 				<div class="works_img"></div>
+			</div>
+
+			<div id="link_contact" class="content">
+				<h1>Contact me</h1>
+				<p><img src="images/icons8-phone.png"> <span id="copy_phone">0985426586</span> <button onclick="copy_contact('copy_phone')">copy</button></p>
+				<p><img src="images/icons8-mail.png"> <span id="copy_email">ciouy72@gmail.com</span> <button onclick="copy_contact('copy_email')">copy</button></p>
 			</div>
 		</section>
 
@@ -59,7 +92,9 @@
 			<div class="container">
 			</div>
 			<div class="copyright">
-				Copyright &copy; 2020 Yi-Syuan Chiou. All rights reserved.</a>
+				Copyright &copy; 2020 Yi-Syuan Chiou. All rights reserved.<br>
+				<a target="_blank" href="https://icons8.com/icons/set/important-mail">Important Mail icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+				<a target="_blank" href="https://icons8.com/icons/set/phone">Phone icon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 			</div>
 		</footer>
 
@@ -73,29 +108,7 @@
 		<!-- scripts -->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery.swipebox.min.js"></script>
-		<script>
-			//loading
-			$(window).load(function(){  
-			    $(".loader").delay(1000).fadeOut();
-	        	$(".loader_mask").delay(1000).fadeOut();
-			});
-
-			$(window).scroll(function(){
-			     //最後一頁scrollTop=body-window，50是預留空間
-			     last=$("body").height()-$(window).height()-50;
-			     if($(window).scrollTop()>=last){
-			     	$(".totop").css("bottom", "0");
-			     }
-			})
-
-			// toTop
-			$(".totop").click(function() {
-				$("html,body").animate({scrollTop:0},400);
-	        });
-
-			// lightBox
-	        $('.swipebox').swipebox();
-		</script>
+		<script src="js/main.js"></script>
 	</body>
 
 </html>

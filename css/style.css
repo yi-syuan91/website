@@ -2,15 +2,24 @@
 
 body {
 	color: #fff;
-	background-image: linear-gradient(to right, rgb(33 33 33),  rgba(255, 255, 255, 0)), url(../images/background.jpg);
+	background-image: linear-gradient(to right, rgb(16, 16, 16, 0.9),  rgba(0, 0, 0, 0.3)), url(../images/background.jpg);
 	background-size: cover;
     background-position: bottom;
     background-attachment: fixed;
-	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	font-family: "Helvetica", "Tahoma", "Arial", "Microsoft JhengHei", "Microsoft Yahei", sans-serif;
+	letter-spacing: 0.1rem;
 }
 
 a {
 	color: #fff;
+}
+
+img {
+	vertical-align: middle;
+}
+
+[onclick] {
+    cursor: pointer;
 }
 
 .loader_mask {
@@ -20,47 +29,29 @@ a {
 	width: 100vw;
 	height: 100vh;
 	background: #1a1a1a;
+	z-index: 2;
 }
 
 .loader {
 	position: fixed;
-	top: 45vh;
- 	left: 45vw;
- 	/*transform: translate(-50%, -50%);*/
-	/*border: 16px solid #f3f3f3;
-	border-radius: 50%;
-	border-top: 16px solid #3498db;*/
+	top: 50%;
+ 	left: 50%;
+	width: 20vh;
+	height: 20vh;
+ 	margin-top:-10vh;
+ 	margin-left:-10vh;
 	background: url(../images/logo.png);
 	background-size: contain;
-	width: 120px;
-	height: 120px;
-	/*-webkit-animation: spin 2s linear infinite;
-	animation: spin 2s linear infinite;*/
+	z-index: 2;
+
 	-webkit-animation-name: spinner;
     -webkit-animation-timing-function: linear;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-duration: 3s;
-
     animation-name: spinner;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-duration: 3s;
-
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -ms-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-}
-
-/* Safari */
-@-webkit-keyframes spin {
-	0% { -webkit-transform: rotate(0deg); }
-	100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-	0% { transform: rotate(0deg); }
-	100% { transform: rotate(360deg); }
 }
 
 /* WebKit and Opera browsers */
@@ -69,24 +60,18 @@ a {
 	to   { -webkit-transform: rotateY(-360deg); }
 }
 
-/* all other browsers */
-@keyframes spinner {
-	from {
-	  -moz-transform: rotateY(0deg);
-	  -ms-transform: rotateY(0deg);
-	  transform: rotateY(0deg);
-	}
-	to {
-	  -moz-transform: rotateY(-360deg);
-	  -ms-transform: rotateY(-360deg);
-	  transform: rotateY(-360deg);
-	}
+.header {
+	width: 100%;
 }
 
-.header {
-	/*position: fixed;*/
-	/*top: 0;*/
-	/*left: 0;*/
+.header_fixed {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: #111;
+	transition: all .3s;
+	opacity: 0;
+	z-index: -1;
 }
 
 .menu {
@@ -124,7 +109,7 @@ a {
 	width: 100%;
 	margin: 0;
 	padding: 15vh 0;
-	background: #555;
+	background: linear-gradient(to right, #353535 0%, #8c8b8b 100%);
 	text-align: center;
 }
 
@@ -132,12 +117,28 @@ a {
 	background: #fff;
 	color: #1a1a1a;
 	margin: 0;
-	padding: 4vh;
+	padding: 2vh 25vh;
+	line-height: 2;
+}
+
+.content button {
+    color: #fff;
+    background: #111;
+    padding: 5px;
+	border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.content .title {
+	font-weight: bold;
+}
+
+.content .detail {
+	margin-left: 3.5em;
 }
 
 .works {
-	/*display: flex;*/
-	/*justify-content: space-around;*/
 	width: 90%;
 	margin: 1vh auto;
 }
@@ -145,7 +146,7 @@ a {
 .works_img {
 	display: inline-block;
 	width: 33%;
-	height: 200px;
+	height: 30vh;
 	background: #777;
 	background-size: cover;
 	background-position: center;
@@ -157,6 +158,9 @@ a {
 	transition: all .3s;
 }
 
+.works a {
+	color: #111;
+}
 
 .works a:nth-child(1) .works_img {
 	background-image: url(../images/work01.jpg);
@@ -171,12 +175,24 @@ a {
 }
 
 .works a:nth-child(4) .works_img {
+	background-image: url(../images/work04.jpg);
+}
+
+.works a:nth-child(5) .works_img {
+	background-image: url(../images/work05.jpg);
+}
+
+.works a:nth-child(6) .works_img {
 	background-image: url(../images/work06.jpg);
 }
 
 .footer {
 	text-align: center;
 	margin: 4vh 0 7vh;
+}
+
+.copyright {
+	padding: 5px 10px;
 }
 
 .totop {
@@ -193,18 +209,22 @@ a {
 
 @media screen and (max-width: 1280px) {
 
-	.works_img {
-		width: 50%;
-		height: 200px;
+	.main {
+		width: 100%;
 	}
 
-}
+	.content h1, .content p {
+		padding: 2vh 5vh;
+		letter-spacing: 0;
+	}
 
-@media screen and (max-width: 736px) {
+	.content .detail {
+	    margin-left: 0;
+	}
 
 	.works_img {
-		width: 90%;
-		height: 200px;
+		width: 100%;
+		height: 20vh;
 	}
 
 }
