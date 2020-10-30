@@ -112,7 +112,7 @@ img {
 	line-height: 2;
 }
 
-.content span {
+.content span, .content a {
 	color: #1a1a1a;
 }
 
