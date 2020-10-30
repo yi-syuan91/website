@@ -21,15 +21,19 @@ $(function(){
 	});
 });
 
+
+$(".totop").css("bottom", -$(".totop").innerHeight());
+
 $(window).scroll(function(){
 	// toTop show
 	top_space = $("body").height()-$(window).height()-50;
+	tag_height = $(".totop").innerHeight();
 
 	if($(window).scrollTop() >= top_space){
 		$(".totop").css("bottom", "0");
 	}
 	else {
-		$(".totop").css("bottom", "-4vh");
+		$(".totop").css("bottom", -tag_height);
 	}
 
 	// header_fixed

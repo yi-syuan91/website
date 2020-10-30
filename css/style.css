@@ -44,14 +44,29 @@ img {
 	background-size: contain;
 	z-index: 2;
 
-	-webkit-animation-name: spinner;
+	/*-webkit-animation-name: spinner;
     -webkit-animation-timing-function: linear;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-duration: 3s;
     animation-name: spinner;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    animation-duration: 3s;
+    animation-duration: 3s;*/
+  	animation: ex1 2s linear infinite;
+}
+
+@keyframes ex1 {
+     
+  0%   {transform: rotate(0deg);}
+  50%  {transform: rotate(-180deg);}
+  100% {transform: rotate(-360deg);}
+}
+
+@keyframes ex2 {
+     
+  0%   {top: 40%;}
+  50%  {top: 50%;}
+  100% {top: 40%;}
 }
 
 /* WebKit and Opera browsers */
@@ -197,10 +212,10 @@ img {
 
 .totop {
 	position: fixed;
-	bottom: -4vh;
+	/*bottom: -4vh;*/
 	left: 50%;
  	transform: translateX(-50%);
- 	padding: 1vh;
+ 	padding: 2vh;
 	background: #555;
 	border-top: 3px solid #fff;
 	transition: all .3s;
